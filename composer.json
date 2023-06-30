@@ -1,12 +1,12 @@
 {
-    "name": "oangia/webv2",
+    "name": "velocity/webv2",
     "description": "Web tookit v2",
     "type": "php",
     "license": "MIT",
     "authors": [
         {
-            "name": "oangia",
-            "email": "blogphp.biz@gmail.com"
+            "name": "velocity",
+            "email": "velocityphp@gmail.com"
         }
     ],
     "minimum-stability": "stable",
