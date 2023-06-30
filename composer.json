@@ -1,0 +1,33 @@
+{
+    "name": "oangia/webv2",
+    "description": "Web tookit v2",
+    "type": "php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "oangia",
+            "email": "blogphp.biz@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0.0",
+        "mongodb/mongodb": "^1.12",
+        "phpmailer/phpmailer": "^6.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "oangia\\": "src/",
+            "MS\\": "ms/"
+        },
+        "files": [
+            "src/helpers/helpers.php",
+            "src/helpers/array.php",
+            "src/helpers/client.php",
+            "src/helpers/file.php",
+            "src/helpers/string.php",
+            "index.php",
+            "ms/index.php"
+        ]
+    }
+}
