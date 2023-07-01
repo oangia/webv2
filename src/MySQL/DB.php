@@ -42,9 +42,9 @@ class DB {
         return ['host' => 'localhost', 'user' => 'root', 'password' => '', 'database' => 'myecom']; 
     }
 
-    public static function select($table, $id) {
+    public static function findById($table, $id) {
         $sql = 'SELECT * FROM ' . $table . ' WHERE id=' . $id;
-        return DB::query($sql);
+        return DB::selectOne($sql);
     }
 
     public static function selectOne($query) {
@@ -53,6 +53,17 @@ class DB {
             return $result[0];
         }
         return $result;
+    }
+
+    public static function find($table, $filter) {
+        $sql = 'SELECT * FROM `' . $table . '` WHERE ';
+        $values = [];
+        foreach ($filter as $key => $value) {
+            $values[] = '`' . $key . '`' . '=' . DB::deletectValue($value);
+        }
+        $sql .= implode(', ', $values);
+        $sql .= ' LIMIT 1';
+        return DB::selectOne($sql);
     }
 
     public static function create($table, $data) {
