@@ -10,6 +10,26 @@ class Model {
         }
     }
 
+    public static function find($filter) {
+        $class = get_called_class();
+        $result = DB::query('SELECT * FROM ' . $class::$table . ' WHERE ' . $filter[0] . ' = \'' . $filter[1] . '\'  ORDER BY id DESC');
+        $entities = [];
+        foreach ($result as $entity) {
+            $entities[] = new $class($entity);
+        } 
+        return $entities;
+    }
+
+    public static function all() {
+        $class = get_called_class();
+        $result = DB::query('SELECT * FROM ' . $class::$table . ' ORDER BY id DESC');
+        $entities = [];
+        foreach ($result as $entity) {
+            $entities[] = new $class($entity);
+        } 
+        return $entities;
+    }
+
     public static function create($data) {
         $class = get_called_class();
         if ($class::$timestamps) {

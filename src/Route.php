@@ -83,6 +83,9 @@ class Route {
         if (is_array($response)) {
             Response::json($response);
         }
+        if (is_object($response)) {
+            Response::json($response);
+        }
         #echo $response;
         die();
     }
